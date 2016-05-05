@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <style type="text/css">
+Body {text-align: center; font-family : "Courier New", Courier, "Andale Mono", Monospace; background-color : #000000; color : #808080; font-size : ;}
+A:link {color : #; font-weight : ; text-decoration : ; background : #;}
+A:visited {color : #; font-weight : ; text-decoration : ; background : #;}
+A:hover {color : #; font-weight : ; text-decoration : ; background : #;}
+A:active {color : #; font-weight : ; text-decoration : ; background : #;}
+</style>
+    <title>Pura Ulun</title>
+  </head>
+  <body>
+    <h1>Random Deities</h1>
+    <div id="content"></div>
+    <script>
+      function hndlr(response) {
+        // document.getElementById("content").innerHTML += response
+        // This doesn't work. What kind of response are we getting from google custom-search api?
+        for (var i = 0; i < response.items.length; i++) {
+          var item = response.items[i];
+          // in production code, item.htmlTitle should have the HTML entities escaped.
+          document.getElementById("content").innerHTML += "<br>" + item.htmlTitle;
+        }
+      }
+    </script>
+    <script src="https://www.googleapis.com/customsearch/v1?key=AIzaSyCYFxNrtYmTssPH5YPJXlSJiQJsXYGf6yM&cx=017576662512468239146:omuauf_lfve&q=deities&callback=hndlr">
+    </script>
+  </body>
+</html>
